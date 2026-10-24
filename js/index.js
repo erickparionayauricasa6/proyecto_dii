@@ -20,9 +20,14 @@ function fn_multiplicar(numero1, numero2){
 }
 
 function fn_operaciones(numero1, numero2, operacion){
-    console.log("Numero 1: ", numero1)
-    console.log("Numero 2: ", numero2)
-    console.log("Operacion Solicitada : ", operacion)
+    console.log("Numero 1: ", numero1);
+    console.log("Numero 2: ", numero2);
+    console.log("Operacion Solicitada : ", operacion);
+
+    if (!Number.isFinite(numero1) || !Number.isFinite(numero2)){
+        throw new TypeError("Los numeros deber ser validos ....");
+    }
+
     let resultado = 0;
     if (operacion == "+"){
         resultado = numero1 + numero2;
@@ -56,8 +61,6 @@ function fn_procesar_operacion(){
             console.log("Debes indicar la operacion a procesar ...")
             return false;
         }
-        
-        
         const resultado = fn_operaciones(parseInt(numero1), parseInt(numero2), operacion);
         console.log("Termino del calculo de la operacion solicitada");
     }catch(error){
