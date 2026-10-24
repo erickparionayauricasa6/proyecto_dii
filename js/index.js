@@ -19,18 +19,46 @@ function fn_multiplicar(numero1, numero2){
     return numero1* numero2;
 }
 
-fn_saludar();
-fn_saludar();
+function fn_operaciones(numero1, numero2, operacion){
+    console.log("Numero 1: ", numero1)
+    console.log("Numero 2: ", numero2)
+    console.log("Operacion Solicitada : ", operacion)
+    let resultado = 0;
+    if (operacion == "+"){
+        resultado = numero1 + numero2;
+    }else if(operacion == "-"){
+        resultado = numero1 - numero2;
+    }else if(operacion == "*"){
+        resultado = numero1 * numero2;
+    }else if(operacion == "/"){
+        resultado = numero1 / numero2;
+    }else{
+        throw new Error("La operacion ingresada no existe");
+    }
+    return resultado;
+}
 
+function fn_procesar_operacion(){
+    try{
+        const numero1 = prompt("Ingrese numero 1 : ");
+        const numero2 = prompt("Ingrese numero 2 : ");
+        const operacion = prompt("Ingrese la operacion : [* Multiplicar,/ dividir, + suma, -resta] :")
+        const resultado = fn_operaciones(parseInt(numero1), parseInt(numero2), operacion);
+        console.log("Termino del calculo de la operacion solicitada");
+    }catch(error){
+        console.log(error);
+        console.error("Error : ", error.message);
+    }finally{
+        console.log("el proceso de operaciones termino.");
+    }
+} // fin fn_procesar_operacion()
+
+fn_saludar();
+fn_saludar();
 fn_bienvenida("Alex", "Portilla");
 fn_bienvenida("Ana", "De Armas");
-
 const suma = fn_sumar(10,20);
 console.log("La suma es:", suma)
-// Crear 2 funciones para dividir y multiplicar
-// crear 1 funcion llamada fn_operaciones donde se pueda realizar las 4 operaciones
+fn_procesar_operacion();
 
-const numero1 = prompt("Ingrese numero 1 : ");
-const numero2 = prompt("Ingrese numero 2 : ");
-const operacion = prompt("Ingrese la operacion : [* Multiplicar,/ dividir, + suma, -resta] :")
 
