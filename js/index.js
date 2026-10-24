@@ -43,6 +43,21 @@ function fn_procesar_operacion(){
         const numero1 = prompt("Ingrese numero 1 : ");
         const numero2 = prompt("Ingrese numero 2 : ");
         const operacion = prompt("Ingrese la operacion : [* Multiplicar,/ dividir, + suma, -resta] :")
+        
+        if (numero1 === null){
+            console.log("Ingrese el numero 1 ... ");
+            return false;
+        }
+        if (numero2 === null){
+            console.log("Ingrese el numero 2 ....");
+            return false;
+        }
+        if (operacion === null){
+            console.log("Debes indicar la operacion a procesar ...")
+            return false;
+        }
+        
+        
         const resultado = fn_operaciones(parseInt(numero1), parseInt(numero2), operacion);
         console.log("Termino del calculo de la operacion solicitada");
     }catch(error){
